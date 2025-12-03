@@ -288,7 +288,7 @@ export const siteConfig = {
     ],
   },
   bentoSection: {
-    title: "Empower Your Conversations with AI",
+    title: "Empower your Conversations with AI",
     description:
       "Ask your Sequence3 Agent for real-time assistance, unified channel handling, and clear insights that help your team respond faster and work smarter.",
     items: [
