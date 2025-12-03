@@ -91,11 +91,11 @@ export function WaitlistExpandable({
         <div className="relative z-10 flex flex-col lg:flex-row h-full w-full max-w-[1100px] mx-auto items-center p-6 sm:p-10 lg:p-16 gap-8 lg:gap-16">
           {/* LEFT SIDE */}
           <div className="flex-1 flex flex-col justify-center space-y-3 w-full">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-primary-foreground leading-none tracking-[-0.03em]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-ex-foreground leading-none tracking-[-0.03em]">
               Reserve your spot
             </h2>
-            <div className="pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-primary-foreground/20">
-              <p className="text-lg sm:text-xl lg:text-2xl text-primary-foreground leading-[150%] mb-4">
+            <div className="pt-6 sm:pt-8 mt-6 sm:mt-8 border-t border-ex-foreground/20">
+              <p className="text-lg sm:text-xl lg:text-2xl text-ex-foreground leading-[150%] mb-4">
                 The waitlist has been a game-changer for our workflow. Highly
                 recommend joining early.
               </p>
@@ -171,7 +171,7 @@ function WaitlistForm({
       <div>
         <label
           htmlFor={nameId}
-          className="block text-[10px] font-mono font-normal text-primary-foreground mb-2 tracking-[0.5px] uppercase"
+          className="block text-[10px] font-mono font-normal text-ex-foreground mb-2 tracking-[0.5px] uppercase"
         >
           FULL NAME *
         </label>
@@ -181,14 +181,14 @@ function WaitlistForm({
           name="name"
           autoComplete="off"
           required
-          className="w-full px-4 py-2.5 rounded-lg bg-card border-0 text-primary placeholder:text-primary/60 focus:outline-none focus:ring-2 focus:ring-primary-foreground/20 transition-all text-xs h-10"
+          className="w-full px-4 py-2.5 rounded-lg bg-[oklch(1_0_0)] border-0 text-ex placeholder:text-ex/60 focus:outline-none focus:ring-2 focus:ring-ex-foreground/20 transition-all text-xs h-10"
         />
       </div>
 
       <div>
         <label
           htmlFor={emailId}
-          className="block text-[10px] font-mono font-normal text-primary-foreground mb-2 tracking-[0.5px] uppercase"
+          className="block text-[10px] font-mono font-normal text-ex-foreground mb-2 tracking-[0.5px] uppercase"
         >
           EMAIL *
         </label>
@@ -198,7 +198,7 @@ function WaitlistForm({
           name="email"
           autoComplete="off"
           required
-          className="w-full px-4 py-2.5 rounded-lg bg-card border-0 text-primary placeholder:text-primary/60 focus:outline-none focus:ring-2 focus:ring-primary-foreground/20 transition-all text-xs h-10"
+          className="w-full px-4 py-2.5 rounded-lg bg-[oklch(1_0_0)] border-0 text-ex placeholder:text-ex/60 focus:outline-none focus:ring-2 focus:ring-ex-foreground/20 transition-all text-xs h-10"
         />
       </div>
 
@@ -206,7 +206,7 @@ function WaitlistForm({
         <div className="flex-1">
           <label
             htmlFor={websiteId}
-            className="block text-[10px] font-mono font-normal text-primary-foreground mb-2 tracking-[0.5px] uppercase"
+            className="block text-[10px] font-mono font-normal text-ex-foreground mb-2 tracking-[0.5px] uppercase"
           >
             USE CASE
           </label>
@@ -217,14 +217,14 @@ function WaitlistForm({
             placeholder="e.g., Instagram store, clinic bookings"
             autoComplete="off"
             required
-            className="w-full px-4 py-2.5 rounded-lg bg-card border-0 text-primary placeholder:text-primary/60 focus:outline-none focus:ring-2 focus:ring-primary-foreground/20 transition-all resize-none text-xs h-10"
+            className="w-full px-4 py-2.5 rounded-lg bg-[oklch(1_0_0)] border-0 text-ex placeholder:text-ex/60 focus:outline-none focus:ring-2 focus:ring-ex-foreground/20 transition-all resize-none text-xs h-10"
           />
         </div>
 
         <div className="sm:w-32 w-full">
           <label
             htmlFor={companySizeId}
-            className="block text-[10px] font-mono font-normal text-primary-foreground mb-2 tracking-[0.5px] uppercase"
+            className="block text-[10px] font-mono font-normal text-ex-foreground mb-2 tracking-[0.5px] uppercase"
           >
             TEAM SIZE
           </label>
@@ -233,7 +233,7 @@ function WaitlistForm({
             name="team-size"
             autoComplete="off"
             required
-            className="w-full px-4 py-2.5 rounded-lg bg-card border-0 text-primary focus:outline-none focus:ring-2 focus:ring-primary-foreground/20 transition-all text-xs h-10 team-size-select"
+            className="w-full px-4 py-2.5 rounded-lg bg-[oklch(1_0_0)] border-0 text-ex focus:outline-none focus:ring-2 focus:ring-ex-foreground/20 transition-all text-xs h-10 team-size-select"
             defaultValue=""
           >
             <option value="" disabled>
@@ -251,7 +251,7 @@ function WaitlistForm({
       <div>
         <label
           htmlFor={messageId}
-          className="block text-[10px] font-mono font-normal text-primary-foreground mb-2 tracking-[0.5px] uppercase"
+          className="block text-[10px] font-mono font-normal text-ex-foreground mb-2 tracking-[0.5px] uppercase"
         >
           WHAT ARE YOU MOST EXCITED ABOUT?
         </label>
@@ -262,13 +262,13 @@ function WaitlistForm({
           placeholder="Tell us what features you're looking forward to..."
           autoComplete="off"
           required
-          className="w-full px-4 py-3 rounded-lg bg-card border-0 text-primary placeholder:text-primary/60 focus:outline-none focus:ring-2 focus:ring-primary-foreground/20 transition-all resize-none text-xs"
+          className="w-full px-4 py-3 rounded-lg bg-[oklch(1_0_0)] border-0 text-ex placeholder:text-ex/60 focus:outline-none focus:ring-2 focus:ring-ex-foreground/20 transition-all resize-none text-xs"
         />
       </div>
 
       <Button
         type="submit"
-        className="w-full px-8 py-2.5 rounded-full bg-primary-foreground text-primary font-medium hover:bg-primary-foreground/90 transition-colors tracking-[-0.03em] h-10 mb-7"
+        className="w-full px-8 py-2.5 rounded-full bg-ex-foreground text-ex font-medium hover:bg-ex-foreground/90 transition-colors tracking-[-0.03em] h-10 mb-7"
       >
         Join Waitlist
       </Button>
