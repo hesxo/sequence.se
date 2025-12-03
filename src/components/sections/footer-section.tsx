@@ -5,6 +5,7 @@ import { FlickeringGrid } from "@/components/ui/flickering-grid";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { siteConfig } from "@/lib/config";
 import { ChevronRightIcon } from "@radix-ui/react-icons";
+import Image from "next/image";
 import Link from "next/link";
 export function FooterSection() {
   const tablet = useMediaQuery("(max-width: 1024px)");
@@ -15,7 +16,14 @@ export function FooterSection() {
         <div className="flex flex-col items-start justify-start gap-y-5 max-w-xs mx-0">
           <Link href="/" className="flex items-center gap-2">
             {/* <Icons.logo className="size-8" /> */}
-            <img src="./purple.svg" alt="Q" className="size-6 md:size-7" />
+            <Image
+              src="/purple.svg"
+              alt="Sequence3 mark"
+              width={28}
+              height={28}
+              className="size-6 md:size-7"
+              priority
+            />
             <p className="text-xl font-semibold text-primary">Sequence3</p>
           </Link>
           <p className="tracking-tight text-muted-foreground font-medium">

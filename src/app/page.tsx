@@ -8,19 +8,19 @@ import { GrowthSection } from "@/components/sections/growth-section";
 import { HeroSection } from "@/components/sections/hero-section";
 import { PricingSection } from "@/components/sections/pricing-section";
 import { QuoteSection } from "@/components/sections/quote-section";
-// import { TestimonialSection } from "@/components/sections/testimonial-section";
+import { TestimonialSection } from "@/components/sections/testimonial-section";
 
 export default function LandingPage() {
   return (
     <main className="flex flex-col items-center justify-center divide-y divide-border min-h-screen w-full">
       <HeroSection />
       <CompanyShowcase />
-      {/* <BentoSection /> */}
+      <BentoSection />
       <QuoteSection />
       {/* <FeatureSection /> */}
-      {/* <GrowthSection /> */}
-      {/* <PricingSection /> */}
-      {/* <TestimonialSection /> */}
+      <GrowthSection />
+      <PricingSection />
+      <TestimonialSection />
       <FAQSection />
       <CTASection />
       <FooterSection />
