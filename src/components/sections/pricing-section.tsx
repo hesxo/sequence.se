@@ -157,9 +157,9 @@ export function PricingSection() {
               </div>
               <hr className="border-border dark:border-white/20" />
               <div className="p-4">
-                {tier.name !== "Basic" && (
+                {tier.name !== "Free" && (
                   <p className="text-sm mb-4">
-                    Everything in {tier.name === "Pro" ? "Basic" : "Pro"} +
+                    Everything in {tier.name === "Startup" ? "Free" : "Startup"} +
                   </p>
                 )}
                 <ul className="space-y-3">
