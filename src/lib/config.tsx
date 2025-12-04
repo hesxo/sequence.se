@@ -218,7 +218,7 @@ export const siteConfig = {
           <Image
             src="/telegram-logo.svg"
             alt="Telegram"
-            width={170}
+            width={125}
             height={50}
             unoptimized
             className="dark:brightness-0 dark:invert dark:opacity-100"
@@ -232,7 +232,7 @@ export const siteConfig = {
           <Image
             src="/whatsapp-logo.svg"
             alt="WhatsApp"
-            width={150}
+            width={120}
             height={29}
             className="dark:brightness-0 dark:invert dark:opacity-100"
           />
