@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  // Note: Google no longer uses keywords meta tag, but keeping for reference
   keywords: [
     // Core Brand & Product
     "Sequence3",

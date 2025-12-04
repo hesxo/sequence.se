@@ -61,7 +61,7 @@ export const getSocialLinksArray = () => {
 export const siteConfig = {
   name: "Sequence3 - AI-powered Conversation Workspaces for SMEs",
   url: "https://sequence3.se",
-  description: "Sequence3 is a unified inbox and explainable AI assistant for SMEs. Bring Facebook, Instagram, and website chat into one place. Get AI-powered reply drafts, sentiment analysis, intent detection, and human-in-the-loop automation. Perfect for small and medium businesses looking to improve customer communication.",
+  description: "Unified inbox and explainable AI assistant for SMEs. Connect Facebook, Instagram, and website chat. AI-powered reply drafts, sentiment analysis, and automation.",
   shortDescription: "AI-driven Conversation Workspace",
   links: {
     // Maintain backward compatibility

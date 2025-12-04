@@ -77,14 +77,14 @@ export function FirstBentoAnimation() {
           <div className="flex items-center bg-background rounded-full w-fit border border-border flex-shrink-0">
             <img
               src="https://randomuser.me/api/portraits/women/79.jpg"
-              alt="User Avatar"
+              alt="Customer service representative avatar"
               className="size-8 rounded-full flex-shrink-0"
             />
           </div>
         </div>
         <div className="flex items-start gap-2">
           <div className="flex items-center bg-background rounded-full size-10 flex-shrink-0 justify-center shadow-[0_0_10px_rgba(0,0,0,0.05)] border border-border">
-            <img src="./purple.svg" alt="Q"className="size-6" />
+            <img src="./purple.svg" alt="Sequence3 AI assistant icon" className="size-6" />
           </div>
 
           <div className="relative">

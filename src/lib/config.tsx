@@ -219,7 +219,7 @@ export const siteConfig = {
             src="/telegram-logo.svg"
             alt="Telegram"
             width={125}
-            height={50}
+            height={25}
             unoptimized
             className="dark:brightness-0 dark:invert dark:opacity-100"
           />

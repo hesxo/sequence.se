@@ -28,19 +28,19 @@ export const Icons = {
     </svg>
   ),
   whatsapp: () => (
-    <img src="/whatsapp.svg" alt="whatsapp" className="size-8" />
+    <img src="/whatsapp.svg" alt="WhatsApp messaging platform icon" className="size-8" />
   ),
   messenger: () => (
-    <img src="/messenger.svg" alt="messenger" className="size-9" />
+    <img src="/messenger.svg" alt="Facebook Messenger platform icon" className="size-9" />
   ),
   facebook: () => (
-    <img src="/facebook.svg" alt="facebook" className="size-10" />
+    <img src="/facebook.svg" alt="Facebook platform icon" className="size-10" />
   ),
   instagram: () => (
-    <img src="/instagram.svg" alt="instagram" className="size-9" />
+    <img src="/instagram.svg" alt="Instagram platform icon" className="size-9" />
   ),
   telegram: () => (
-    <img src="/telegram.svg" alt="telegram" className="size-10" />
+    <img src="/telegram.svg" alt="Telegram messaging platform icon" className="size-10" />
   ),
   soc2: ({ className }: { className?: string }) => (
     <svg

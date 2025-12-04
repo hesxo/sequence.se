@@ -114,7 +114,7 @@ export function Navbar() {
           <div className="flex h-[56px] items-center justify-between p-4">
             <Link href="/" className="flex items-center gap-3">
               {/* <Icons.logo className="size-7 md:size-10" /> */}
-              <img src="./purple.svg" alt="Q" className="size-5 md:size-8" />
+              <img src="./purple.svg" alt="Sequence3 logo" className="size-5 md:size-8" />
               <p className="text-lg font-semibold text-primary">Sequence3</p>
             </Link>
 
@@ -171,7 +171,7 @@ export function Navbar() {
                 <div className="flex items-center justify-between">
                   <Link href="/" className="flex items-center gap-3">
                     {/* <Icons.logo className="size-7 md:size-10" /> */}
-                    <img src="./Q.svg" alt="Q" className="size-6 md:size-7" />
+                    <img src="./Q.svg" alt="Sequence3 logo" className="size-6 md:size-7" />
                     <p className="text-lg font-semibold text-primary">
                       Sequence3
                     </p>

@@ -18,7 +18,7 @@ export function QuoteSection() {
           <div className="size-10 rounded-full bg-primary border border-border">
             <img
               src={quoteSection.author.image}
-              alt={quoteSection.author.name}
+              alt={`${quoteSection.author.name}, ${quoteSection.author.role} - Customer testimonial`}
               className="size-full rounded-full object-contain"
             />
           </div>
