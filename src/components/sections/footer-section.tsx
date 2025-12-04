@@ -63,6 +63,11 @@ export function FooterSection() {
           </div>
         </div>
       </div>
+      <div className="absolute bottom-4 left-6 right-6 z-20 text-center">
+          <p className="text-xs text-muted-foreground mb-[24vh]">
+            © {new Date().getFullYear()} Sequence3 // CS-22. All rights reserved.
+          </p>
+      </div>
       <div className="w-full h-48 md:h-64 relative mt-24 z-0">
         <div className="absolute inset-0 bg-gradient-to-t from-transparent to-background z-10 from-40%" />
         <div className="absolute inset-0 mx-6">
