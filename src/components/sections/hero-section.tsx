@@ -6,7 +6,7 @@ import Link from "next/link";
 export function HeroSection() {
   const { hero } = siteConfig;
   
-  const verifiedDomains = ["sq3.io", "sq3.us", "sq3.one", "sequence3.se"];
+  const verifiedDomains = ["sq3.io", "sq3.us", "sequence3.se", "sq3.one"];
 
   return (
     <section id="hero" className="w-full relative">
@@ -32,7 +32,7 @@ export function HeroSection() {
               className="absolute top-48 left-[20%] text-xs md:text-sm font-mono text-muted-foreground/20 animate-pulse"
               style={{ animationDelay: '1s' }}
             >
-              {verifiedDomains[2]}
+              {verifiedDomains[0]}
             </div>
             <div 
               className="absolute top-40 right-[8%] text-xs md:text-sm font-mono text-muted-foreground/15 animate-pulse"
@@ -62,7 +62,7 @@ export function HeroSection() {
               className="absolute top-28 right-[22%] text-xs md:text-sm font-mono text-muted-foreground/18 animate-pulse"
               style={{ animationDelay: '0.3s' }}
             >
-              {verifiedDomains[3]}
+              {verifiedDomains[2]}
             </div>
             <div 
               className="absolute top-44 left-[8%] text-xs md:text-sm font-mono text-muted-foreground/14 animate-pulse"
