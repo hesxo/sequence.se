@@ -16,7 +16,6 @@ import {
   useExpandableScreen,
 } from "@/components/ui/expandable-card"
 import { cn } from "@/lib/utils"
-import NumberFlow from "@number-flow/react"
 
 interface WaitlistExpandableProps {
   label: string
@@ -110,7 +109,8 @@ export function WaitlistExpandable({
 
       <ExpandableScreenContent className="bg-[#4F39F6]">
         <div className="relative z-10 flex flex-col lg:flex-row h-full w-full max-w-[1100px] mx-auto items-center p-6 sm:p-10 lg:p-16 gap-8 lg:gap-16">
-          {/* LEFT SIDE */}
+
+          {/* LEFT */}
           <div className="flex-1 flex flex-col justify-center space-y-3 mt-1 w-full">
             <div className="space-y-4">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-ex-foreground leading-none tracking-[-0.03em]">
@@ -125,7 +125,7 @@ export function WaitlistExpandable({
             </div>
           </div>
 
-          {/* FORM SIDE */}
+          {/* FORM */}
           <div className="flex-1 w-full">
             <WaitlistForm
               nameId={nameId}
@@ -167,14 +167,15 @@ function WaitlistForm({
   waitlistCount,
 }: WaitlistFormProps) {
   const { collapse } = useExpandableScreen()
-  
-  // Convert count to hex color (e.g., 21 -> #000015)
+
+  // ★ SCALE COUNT → SMOOTH DARK-TO-LIGHT PROGRESSION
   const getHexColor = (count: number) => {
-    const hex = Math.min(count, 0xFFFFFF).toString(16).padStart(6, '0')
+    // 250 signups to reach white: 0xFFFFFF / 250 ≈ 67109
+    const scaled = count * 67109
+    const hex = Math.min(scaled, 0xffffff).toString(16).padStart(6, "0")
     return `#${hex}`
   }
-  
-  // Calculate if color is light or dark for text contrast
+
   const isLightColor = (hex: string) => {
     const r = parseInt(hex.slice(1, 3), 16)
     const g = parseInt(hex.slice(3, 5), 16)
@@ -182,10 +183,10 @@ function WaitlistForm({
     const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255
     return luminance > 0.5
   }
-  
+
   const currentCount = waitlistCount ?? 0
   const bgColor = getHexColor(currentCount)
-  const textColor = isLightColor(bgColor) ? '#000000' : '#FFFFFF'
+  const textColor = isLightColor(bgColor) ? "#000000" : "#FFFFFF"
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -216,51 +217,42 @@ function WaitlistForm({
     }
 
     form.reset()
-    collapse() // closes the expandable
+    collapse()
   }
 
   return (
     <form className="space-y-4 sm:space-y-5" onSubmit={handleSubmit}>
       <div>
-        <label
-          htmlFor={nameId}
-          className="block text-[10px] font-mono font-normal text-ex-foreground mb-2 tracking-[0.5px] uppercase"
-        >
+        <label htmlFor={nameId} className="block text-[10px] font-mono text-ex-foreground mb-2 uppercase">
           FULL NAME *
         </label>
         <input
           type="text"
           id={nameId}
           name="name"
-          autoComplete="off"
           required
-          className="w-full px-4 py-2.5 rounded-lg bg-[oklch(1_0_0)] border-0 text-ex placeholder:text-ex/60 focus:outline-none focus:ring-2 focus:ring-ex-foreground/20 transition-all text-xs h-10"
+          autoComplete="off"
+          className="w-full px-4 py-2.5 rounded-lg bg-[oklch(1_0_0)] text-xs h-10"
         />
       </div>
 
       <div>
-        <label
-          htmlFor={emailId}
-          className="block text-[10px] font-mono font-normal text-ex-foreground mb-2 tracking-[0.5px] uppercase"
-        >
+        <label htmlFor={emailId} className="block text-[10px] font-mono text-ex-foreground mb-2 uppercase">
           EMAIL *
         </label>
         <input
           type="email"
           id={emailId}
           name="email"
-          autoComplete="off"
           required
-          className="w-full px-4 py-2.5 rounded-lg bg-[oklch(1_0_0)] border-0 text-ex placeholder:text-ex/60 focus:outline-none focus:ring-2 focus:ring-ex-foreground/20 transition-all text-xs h-10"
+          autoComplete="off"
+          className="w-full px-4 py-2.5 rounded-lg bg-[oklch(1_0_0)] text-xs h-10"
         />
       </div>
 
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="flex-1">
-          <label
-            htmlFor={websiteId}
-            className="block text-[10px] font-mono font-normal text-ex-foreground mb-2 tracking-[0.5px] uppercase"
-          >
+          <label htmlFor={websiteId} className="block text-[10px] font-mono text-ex-foreground mb-2 uppercase">
             USE CASE
           </label>
           <input
@@ -269,27 +261,21 @@ function WaitlistForm({
             name="use-case"
             placeholder="e.g., Instagram store, clinic bookings"
             autoComplete="off"
-            className="w-full px-4 py-2.5 rounded-lg bg-[oklch(1_0_0)] border-0 text-ex placeholder:text-ex/60 focus:outline-none focus:ring-2 focus:ring-ex-foreground/20 transition-all resize-none text-xs h-10"
+            className="w-full px-4 py-2.5 rounded-lg bg-[oklch(1_0_0)] text-xs h-10"
           />
         </div>
 
         <div className="sm:w-32 w-full">
-          <label
-            htmlFor={companySizeId}
-            className="block text-[10px] font-mono font-normal text-ex-foreground mb-2 tracking-[0.5px] uppercase"
-          >
+          <label htmlFor={companySizeId} className="block text-[10px] font-mono text-ex-foreground mb-2 uppercase">
             TEAM SIZE
           </label>
           <select
             id={companySizeId}
             name="team-size"
-            autoComplete="off"
-            className="w-full px-4 py-2.5 rounded-lg bg-[oklch(1_0_0)] border-0 text-ex focus:outline-none focus:ring-2 focus:ring-ex-foreground/20 transition-all text-xs h-10 team-size-select"
+            className="w-full px-4 py-2.5 rounded-lg bg-[oklch(1_0_0)] text-xs h-10"
             defaultValue=""
           >
-            <option value="" disabled>
-              Select
-            </option>
+            <option value="" disabled>Select</option>
             <option value="solo">Solo</option>
             <option value="2-5">2-5</option>
             <option value="6-20">6-20</option>
@@ -300,54 +286,44 @@ function WaitlistForm({
       </div>
 
       <div>
-        <label
-          htmlFor={messageId}
-          className="block text-[10px] font-mono font-normal text-ex-foreground mb-2 tracking-[0.5px] uppercase"
-        >
+        <label htmlFor={messageId} className="block text-[10px] font-mono text-ex-foreground mb-2 uppercase">
           WHAT ARE YOU MOST EXCITED ABOUT?
         </label>
         <textarea
           id={messageId}
           name="excited-about"
           rows={3}
-          placeholder="Tell us what features you're looking forward to..."
           autoComplete="off"
-          className="w-full px-4 py-3 rounded-lg bg-[oklch(1_0_0)] border-0 text-ex placeholder:text-ex/60 focus:outline-none focus:ring-2 focus:ring-ex-foreground/20 transition-all resize-none text-xs"
+          className="w-full px-4 py-3 rounded-lg bg-[oklch(1_0_0)] text-xs"
         />
       </div>
 
       <Button
         type="submit"
-        className="w-full px-8 py-2.5 rounded-full bg-ex-foreground text-ex font-medium hover:bg-ex-foreground/90 transition-colors tracking-[-0.03em] h-10 mb-7"
+        className="w-full px-8 py-2.5 rounded-full bg-ex-foreground text-ex h-10 mb-7 hover:bg-ex-foreground/80"
       >
         Join Waitlist
       </Button>
-       <div className="flex items-center justify-center w-full mb-4">
-          <div className="inline-flex items-center gap-3 rounded-full backdrop-blur-sm">
-            <div 
-              className="flex items-center px-3 py-0.7 border border-white/[0.07] shadow-[0px_1.1px_0px_0px_rgba(255,255,255,0.20)_inset,0px_4.4px_6.6px_0px_rgba(255,255,255,0.01)_inset,0px_2.2px_6.6px_0px_rgba(18,43,105,0.04),0px_1.1px_2.2px_0px_rgba(18,43,105,0.08),0px_0px_0px_1.1px_rgba(18,43,105,0.08)] transition-colors duration-700"
-              style={{ backgroundColor: bgColor }}
+
+      {/* ————————— HEX DISPLAY + BG SYNC ————————— */}
+      <div className="flex items-center justify-center w-full mb-4">
+        <div className="inline-flex items-center gap-3 rounded-full backdrop-blur-sm">
+          <div
+            className="flex items-center px-3 py-0.7 border border-white/[0.07] transition-colors duration-700"
+            style={{ backgroundColor: bgColor }}
+          >
+            <span
+              className="font-mono text-sm transition-colors duration-700 flex items-center"
+              style={{ color: textColor }}
             >
-              <span className="font-mono text-sm transition-colors duration-700 flex items-center" style={{ color: textColor }}>
-                #<NumberFlow
-                  value={currentCount}
-                  className="font-mono"
-                  transformTiming={{
-                    duration: 700,
-                    easing: "ease-out",
-                  }}
-                  format={{
-                    useGrouping: false,
-                    minimumIntegerDigits: 6,
-                  }}
-                />
-              </span>
-            </div>
-            <span className="text-xs font-mono text-ex-foreground/80 uppercase tracking-wider flex items-center gap-1">
-              ILLUMINATE.
+              {bgColor.toUpperCase()}
             </span>
           </div>
+          <span className="text-xs font-mono text-ex-foreground/80 uppercase tracking-wider">
+            ILLUMINATE.
+          </span>
         </div>
+      </div>
     </form>
   )
 }
