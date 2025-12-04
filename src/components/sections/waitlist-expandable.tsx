@@ -167,6 +167,25 @@ function WaitlistForm({
   waitlistCount,
 }: WaitlistFormProps) {
   const { collapse } = useExpandableScreen()
+  
+  // Convert count to hex color (e.g., 21 -> #000015)
+  const getHexColor = (count: number) => {
+    const hex = Math.min(count, 0xFFFFFF).toString(16).padStart(6, '0')
+    return `#${hex}`
+  }
+  
+  // Calculate if color is light or dark for text contrast
+  const isLightColor = (hex: string) => {
+    const r = parseInt(hex.slice(1, 3), 16)
+    const g = parseInt(hex.slice(3, 5), 16)
+    const b = parseInt(hex.slice(5, 7), 16)
+    const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255
+    return luminance > 0.5
+  }
+  
+  const currentCount = waitlistCount ?? 0
+  const bgColor = getHexColor(currentCount)
+  const textColor = isLightColor(bgColor) ? '#000000' : '#FFFFFF'
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -304,21 +323,28 @@ function WaitlistForm({
         Join Waitlist
       </Button>
        <div className="flex items-center justify-center w-full mb-4">
-          <div className="inline-flex items-center gap-2 rounded-full backdrop-blur-sm">
+          <div className="inline-flex items-center gap-3 rounded-full backdrop-blur-sm">
+            <div 
+              className="flex items-center px-3 py-0.7 border border-white/[0.07] shadow-[0px_1.1px_0px_0px_rgba(255,255,255,0.20)_inset,0px_4.4px_6.6px_0px_rgba(255,255,255,0.01)_inset,0px_2.2px_6.6px_0px_rgba(18,43,105,0.04),0px_1.1px_2.2px_0px_rgba(18,43,105,0.08),0px_0px_0px_1.1px_rgba(18,43,105,0.08)] transition-colors duration-700"
+              style={{ backgroundColor: bgColor }}
+            >
+              <span className="font-mono text-sm transition-colors duration-700 flex items-center" style={{ color: textColor }}>
+                #<NumberFlow
+                  value={currentCount}
+                  className="font-mono"
+                  transformTiming={{
+                    duration: 700,
+                    easing: "ease-out",
+                  }}
+                  format={{
+                    useGrouping: false,
+                    minimumIntegerDigits: 6,
+                  }}
+                />
+              </span>
+            </div>
             <span className="text-xs font-mono text-ex-foreground/80 uppercase tracking-wider flex items-center gap-1">
-              <NumberFlow
-                value={waitlistCount ?? 0}
-                className="font-mono"
-                transformTiming={{
-                  duration: 700,
-                  easing: "ease-out",
-                }}
-                format={{
-                  useGrouping: true,
-                  minimumIntegerDigits: 1,
-                }}
-              />
-              {(waitlistCount ?? 0) === 1 ? 'person' : 'people'} joined
+              JOIN TO ILLUMINATE.
             </span>
           </div>
         </div>
