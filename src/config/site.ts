@@ -1,9 +1,22 @@
 import { USER } from "@/features/profile/data/user";
 import type { NavItem } from "@/types/nav";
 
+// Ensure URL is always valid, fallback to a default if APP_URL is invalid
+function getSiteUrl(): string {
+  const url = process.env.APP_URL || "https://hasal.me";
+  try {
+    // Validate URL format
+    new URL(url);
+    return url;
+  } catch {
+    // If invalid, return fallback
+    return "https://hasal.me";
+  }
+}
+
 export const SITE_INFO = {
   name: USER.displayName,
-  url: process.env.APP_URL || "https://hasal.me",
+  url: getSiteUrl(),
   ogImage: USER.ogImage,
   description: USER.bio,
   keywords: USER.keywords,
